@@ -15,8 +15,12 @@ X_poly = zeros(numel(X), p);
 %
 % 
 
-
-
+% Not optimized, minimal working solution
+for i = 1:numel(X)
+    for j = 1:p
+        X_poly(i, j) = power(X(i), j);
+    endfor
+endfor
 
 
 
