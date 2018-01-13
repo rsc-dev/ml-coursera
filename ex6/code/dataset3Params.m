@@ -25,10 +25,31 @@ sigma = 0.3;
 
 
 
-
-
-
-
+%error = 100000;
+%
+%for c = [0.01 0.03 0.1 0.3 1 3 10 30]
+%
+%    for s = [0.01 0.03 0.1 0.3 1 3 10 30]
+%        model= svmTrain(X, y, c, @(x1, x2) gaussianKernel(x1, x2, s)); 
+%
+%        predictions = svmPredict(model, Xval);
+%        prediction_error = mean(double(predictions ~= yval));
+%        
+%        if prediction_error < error
+%            C = c;
+%            sigma = s;
+%            error = prediction_error;
+%        endif
+%        
+%    endfor
+%
+%endfor
 % =========================================================================
+
+C = 1;
+sigma = 0.1;
+
+disp("Best value for C="), disp(C)
+disp("Best value for sigma="), disp(sigma)
 
 end
