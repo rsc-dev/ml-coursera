@@ -44,6 +44,11 @@ errors = ((X * Theta' - Y) .* R).^2;
 J = (1/2) * sum(errors(:));
 
 
+diff = ((X * Theta' - Y) .* R);
+X_grad = diff * Theta;
+Theta_grad = diff' * X;
+
+
 % =============================================================
 
 grad = [X_grad(:); Theta_grad(:)];
