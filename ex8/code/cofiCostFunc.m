@@ -41,7 +41,12 @@ Theta_grad = zeros(size(Theta));
 %
 
 errors = ((X * Theta' - Y) .* R).^2;
-J = (1/2) * sum(errors(:));
+% Cost function without regularization
+%J = (1/2) * sum(errors(:));
+
+% Cost function with regularization
+regularization = (lambda / 2) * (sum((Theta .^ 2)(:)) + sum((X .^ 2)(:)));
+J = (1/2) * sum(errors(:)) + regularization; 
 
 
 diff = ((X * Theta' - Y) .* R);
