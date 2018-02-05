@@ -50,8 +50,14 @@ J = (1/2) * sum(errors(:)) + regularization;
 
 
 diff = ((X * Theta' - Y) .* R);
-X_grad = diff * Theta;
-Theta_grad = diff' * X;
+
+% Without regularization
+%X_grad = diff * Theta;
+%Theta_grad = diff' * X;
+
+% With regularization
+X_grad = diff * Theta + lambda * X;
+Theta_grad = diff' * X + lambda * Theta;
 
 
 % =============================================================
